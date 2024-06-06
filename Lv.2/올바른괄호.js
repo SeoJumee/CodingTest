@@ -12,6 +12,23 @@ function solution(s) {
   return sum === 0 ? true : false;
 }
 
+function solution(s) {
+  let answer = 0;
+
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === '(') {
+      answer += 1;
+    } else {
+      answer -= 1;
+    }
+
+    if (answer < 0) {
+      return false;
+    }
+  }
+  return answer === 0;
+}
+
 // 괄호가 바르게 짝지어졌다는 것은 '(' 문자로 열렸으면 반드시 짝지어서 ')' 문자로 닫혀야 한다는 뜻입니다. 예를 들어
 // "()()" 또는 "(())()" 는 올바른 괄호입니다.
 // ")()(" 또는 "(()(" 는 올바르지 않은 괄호입니다.
